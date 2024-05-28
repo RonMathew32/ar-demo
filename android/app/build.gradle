@@ -70,7 +70,8 @@ def enableProguardInReleaseBuilds = false
 def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
-    ndkVersion rootProject.ext.ndkVersion
+    // ndkVersion rootProject.ext.ndkVersion
+    ndkVersion "26.2.11394342"
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
@@ -108,6 +109,12 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
+    implementation project(':gvr_common')
+    implementation project(':arcore_client')
+    implementation project(path: ':react_viro')
+    implementation project(path: ':viro_renderer')
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
+    implementation 'com.google.protobuf.nano:protobuf-javanano:3.1.0'
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
